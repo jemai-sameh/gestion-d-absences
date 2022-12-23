@@ -48,7 +48,6 @@ public class StudentController {
             model.addAttribute("groups", groupService.getAllGroups());
             return "students/add";
         }
-
         studentService.addStudent(student);
         return "redirect:/students";
     }
@@ -91,8 +90,20 @@ public class StudentController {
 
     @PostMapping("/{sid}/add-image")
     //TODO complete the parameters of this method
-    public String addImage() {
+    public String addImage( @PathVariable Long sid, Model model, @RequestParam("image") MultipartFile image ) {
+           // model.addAttribute("groups", groupService.getAllGroups());
+            //return "students/add";
+
+        try {
+            Image imageSave=imageService.addImage(image);
+            Student student=studentService.getStudentBySid(sid);
+            student.setImage(imageSave);
+            studentService.addStudent(student);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         //TODO complete the body of this method
+
         return "redirect:/students";
     }
 
