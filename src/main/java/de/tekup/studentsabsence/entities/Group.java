@@ -14,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Data
-@ToString(exclude = "students")
+@ToString(exclude = {"subjects","students"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "_group")
