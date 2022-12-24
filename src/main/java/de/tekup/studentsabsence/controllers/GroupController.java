@@ -29,7 +29,6 @@ public class GroupController {
     private final SubjectService subjectService;
     private final GroupSubjectService groupSubjectService;
     private final AbsenceService absenceService;
-
     @GetMapping({"", "/"})
     public String index(Model model) {
         List<Group> groups = groupService.getAllGroups();
@@ -85,16 +84,10 @@ public class GroupController {
     @GetMapping("/{id}/show")
     public String show(@PathVariable long id, Model model) {
         Group group = groupService.getGroupById(id);
-
         model.addAttribute("group", group);
         model.addAttribute("groupSubjects",groupSubjectService.getSubjectsByGroupId(id));
         model.addAttribute("students",group.getStudents());
         model.addAttribute("absenceService", absenceService);
-
-        group.getStudents().forEach(student -> {
-
-        });
-
         return "groups/show";
     }
 
@@ -104,7 +97,6 @@ public class GroupController {
         model.addAttribute("group",groupService.getGroupById(id));
         model.addAttribute("subjects",subjectService.getAllSubjects());
         return "groups/add-subject";
-
     }
 
     @PostMapping("/{id}/add-subject")

@@ -53,6 +53,7 @@ public class Student implements Serializable {
     @ManyToOne
     private Group group;
 
+
     @OneToMany(mappedBy = "student")
     private List<Absence> absences;
 }

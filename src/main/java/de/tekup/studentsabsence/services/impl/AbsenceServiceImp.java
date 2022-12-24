@@ -15,6 +15,7 @@ import java.util.NoSuchElementException;
 public class AbsenceServiceImp implements AbsenceService {
     private final AbsenceRepository absenceRepository;
 
+
     @Override
     public List<Absence> getAllAbsences() {
         List<Absence> absences = new ArrayList<>();

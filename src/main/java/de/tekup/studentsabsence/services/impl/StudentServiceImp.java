@@ -38,7 +38,11 @@ public class StudentServiceImp implements StudentService {
     //TODO Complete this method
     @Override
     public Student updateStudent(Student student) {
-        return null;
+        if (student.getSid() == null || studentRepository.findById(student.getSid()).isEmpty() ) {
+            throw  new NoSuchElementException("Unable to update a student does not exist with a "+student.getSid()+" ID");
+        }
+
+        return this.addStudent(student);
     }
 
     //TODO Complete this method

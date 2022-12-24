@@ -23,7 +23,6 @@ public class Image {
 
     @OneToOne
     private  Student student;
-
     public Image(String id, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.fileName = fileName;

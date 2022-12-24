@@ -31,7 +31,6 @@ public class Absence implements Serializable {
 
     @ManyToOne
     private Student student;
-
     @OneToOne
     private Subject subject;
 
