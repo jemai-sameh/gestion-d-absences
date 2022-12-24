@@ -26,4 +26,5 @@ public class Subject implements Serializable {
     @OneToMany(mappedBy = "subject")
     private List<GroupSubject> subjects;
 
+
 }

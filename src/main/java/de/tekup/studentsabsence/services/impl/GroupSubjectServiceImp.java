@@ -22,7 +22,6 @@ public class GroupSubjectServiceImp implements GroupSubjectService {
     private final GroupService groupService;
     private final SubjectService subjectService;
 
-
     @Override
     public void addSubjectToGroup(Group group, Subject subject, float hours) {
         groupSubjectRepository.save(new GroupSubject(

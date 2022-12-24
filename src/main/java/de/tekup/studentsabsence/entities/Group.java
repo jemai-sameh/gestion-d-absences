@@ -36,7 +36,6 @@ public class Group {
     @OneToMany(mappedBy = "group")
     private List<GroupSubject> subjects;
 
-
     @OneToMany(mappedBy = "group")
     private List<Student> students;
 
